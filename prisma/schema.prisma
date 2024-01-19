@@ -9,3 +9,12 @@ datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
 }
+
+model users {
+  id Int @id @default(autoincrement())
+  first_name String
+  last_name String
+  validated Boolean
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+}
