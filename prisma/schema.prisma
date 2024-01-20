@@ -17,4 +17,13 @@ model users {
   validated Boolean
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
+  todo todo?
+}
+
+model todo {
+  id Int @id @default(autoincrement())
+  todoText String
+  completed Boolean
+  userId Int @unique
+  user users @relation(fields: [userId], references: [id])
 }
